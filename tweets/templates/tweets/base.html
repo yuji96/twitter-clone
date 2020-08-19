@@ -1,0 +1,26 @@
+{% load static %}
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{% static 'tweets/normalize.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'tweets/style.css' %}">
+  </head>
+  <body>
+    {% if user.is_authenticated %}
+    <p><a href="{% url 'tweet_new' %}">tweet_new</a></p>
+    {% endif %}
+    {% if timeline %}
+    <div class="timeline">
+    {% for tweet in timeline %}
+    <div class="tweet">
+      <p>{{ tweet.author }}</p>
+      <p>{{ tweet.text }}</p>
+      <p>{{ tweet.created_date }}</p>
+    </div>
+    {% endfor %}
+    </div>
+    {% else %}
+    <p>no tweets</p>
+    {% endif %}
+  </body>
+</html>
+

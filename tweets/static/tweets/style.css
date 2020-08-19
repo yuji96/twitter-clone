@@ -1,13 +1,13 @@
-.timeline {
+body {
   background-color: #002f6d;
 }
 
 .tweet {
   padding: 10px;
   margin-bottom: 10px;
-  border: #0049a8;
+  border: solid thin #0049a8;
 }
 
-.tweet p {
+p, p a {
   color: white;
 }
