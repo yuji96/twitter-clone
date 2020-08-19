@@ -1,0 +1,13 @@
+.timeline {
+  background-color: #002f6d;
+}
+
+.tweet {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: #0049a8;
+}
+
+.tweet p {
+  color: white;
+}

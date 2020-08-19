@@ -1,10 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
-Hello World
-</body>
-</html>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'tweets/normalize.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'tweets/style.css' %}">
+
+{% if timeline %}
+<div class="timeline">
+  {% for tweet in timeline %}
+  <div class="tweet">
+    <p>{{ tweet.author }}</p>
+    <p>{{ tweet.text }}</p>
+    <p>{{ tweet.created_date }}</p>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+  <p>no tweets</p>
+{% endif %}
