@@ -5,8 +5,9 @@
     <link rel="stylesheet" type="text/css" href="{% static 'tweets/style.css' %}">
   </head>
   <body>
+    <h1>つったかたー</h1>
     {% if user.is_authenticated %}
-    <p><a href="{% url 'tweet_new' %}">tweet_new</a></p>
+    <p class="tweet_new"><a href="{% url 'tweet_new' %}">tweet_new</a></p>
     {% endif %}
     {% block content %}
     {% endblock %}

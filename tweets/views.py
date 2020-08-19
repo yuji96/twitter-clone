@@ -12,7 +12,7 @@ class TimelineView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Tweet.objects.order_by('-created_date')[:5]
+        return Tweet.objects.order_by('-created_date')
 
 
 def tweet_new(request):
