@@ -9,6 +9,5 @@ class TweetForm(forms.Form):
 
     def tweet_new(self, request):
         tweet = Tweet(author=request.user,
-                      text=self.cleaned_data.pop('text'),
-                      created_date=timezone.now())
+                      text=self.cleaned_data.pop('text'))
         tweet.save()
