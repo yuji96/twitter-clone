@@ -10,7 +10,7 @@ class TimelineView(generic.ListView):
 
     def get_queryset(self):
         """Return the last five published questions."""
-        return Tweet.objects.order_by('-created_date')
+        return Tweet.objects.order_by('-created_time')
 
 
 class TweetCreate(generic.FormView):
@@ -19,5 +19,5 @@ class TweetCreate(generic.FormView):
     success_url = '/'
 
     def form_valid(self, form):
-        form.tweet_new(self.request)
+        form.create_tweet(self.request)
         return super().form_valid(form)

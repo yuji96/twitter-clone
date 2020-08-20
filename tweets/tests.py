@@ -12,7 +12,7 @@ from .models import Tweet
 
 def create_tweet(author, text, time):
     Tweet.objects.create(
-        author=author, text=text, created_date=time
+        author=author, text=text, created_time=time
     )
 
 

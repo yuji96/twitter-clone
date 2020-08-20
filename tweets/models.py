@@ -6,7 +6,7 @@ from django.utils import timezone
 class Tweet(models.Model):
     author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     text = models.TextField()
-    created_date = models.DateTimeField(default=timezone.now)
+    created_time = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
-        return self.created_date.strftime('%Y-%m-%d %H:%M:%S')
+        return self.created_time.strftime('%Y-%m-%d %H:%M:%S')
