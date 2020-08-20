@@ -1,12 +1,10 @@
 import datetime
-from datetime import time
 
 from django.contrib.auth.models import User
 from django.test import TestCase
 from django.urls import reverse
 from django.utils import timezone
 
-from .forms import TweetForm
 from .models import Tweet
 
 
@@ -48,13 +46,6 @@ class TimelineViewTests(TestCase):
             response.context['timeline'],
             [f'<Tweet: {strftime(time1)}>', f'<Tweet: {strftime(time2)}>']
         )
-
-
-class TweetCreateViewTest(TestCase):
-    def test_form(self):
-        data = {'text': 'test'}
-        form = TweetForm(data)
-        self.assertTrue(form.is_valid())
 
 
 class TweetModelTests(TestCase):
