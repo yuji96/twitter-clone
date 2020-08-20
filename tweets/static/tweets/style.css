@@ -1,0 +1,26 @@
+body {
+  background-color: #002f6d;
+}
+
+h1, p, p a {
+  color: white;
+}
+
+h1, .tweet_new {
+  padding: 10px;
+  margin: 10px;
+}
+
+.tweet {
+  padding: 10px;
+  margin: 10px;
+  border: solid thin #0049a8;
+}
+
+.tweet p:nth-child(2) {
+  font-size: large;
+}
+
+.tweet p:nth-child(3) {
+  color: #929292;
+}
