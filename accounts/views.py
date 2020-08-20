@@ -1,14 +1,13 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.views import generic
 
-from .forms import SignupForm
 
-
-class SignupView(generic.FormView):
+class SignupView(generic.CreateView):
     template_name = 'accounts/signup.html'
-    form_class = SignupForm
+    form_class = UserCreationForm
     success_url = 'timeline'
 
     def form_valid(self, form):
-        form.create_user()
+        user = form.save()
+        user.save()
         return super().form_valid(form)
-
