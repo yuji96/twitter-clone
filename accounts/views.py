@@ -1,4 +1,5 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth.views import LoginView as AuthLoginView
 from django.views import generic
 
 
@@ -10,4 +11,13 @@ class SignupView(generic.CreateView):
     def form_valid(self, form):
         user = form.save()
         user.save()
+        return super().form_valid(form)
+
+
+class LoginView(AuthLoginView):
+    template_name = 'accounts/login.html'
+    form_class = AuthenticationForm
+    success_url = 'tweets:timeline'
+
+    def form_valid(self, form):
         return super().form_valid(form)
