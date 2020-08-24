@@ -8,16 +8,8 @@ class SignupView(generic.CreateView):
     form_class = UserCreationForm
     success_url = 'timeline'
 
-    def form_valid(self, form):
-        user = form.save()
-        user.save()
-        return super().form_valid(form)
-
 
 class Login(LoginView):
     template_name = 'accounts/login.html'
     form_class = AuthenticationForm
-    success_url = 'tweets:timeline'
-
-    def form_valid(self, form):
-        return super().form_valid(form)
+    success_url = 'timeline'
