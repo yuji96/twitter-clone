@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
-from django.contrib.auth.views import LoginView as AuthLoginView
+from django.contrib.auth.views import LoginView
 from django.views import generic
 
 
@@ -9,7 +9,7 @@ class SignupView(generic.CreateView):
     success_url = 'timeline'
 
 
-class LoginView(AuthLoginView):
+class Login(LoginView):
     template_name = 'accounts/login.html'
     form_class = AuthenticationForm
     success_url = 'timeline'
