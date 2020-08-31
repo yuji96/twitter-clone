@@ -5,7 +5,7 @@ from django.views import generic
 from .models import Tweet
    
 
-class TimelineView(LoginRequiredMixin, generic.ListView):
+class TimelineView(generic.ListView):
     template_name = 'tweets/timeline.html'
     context_object_name = 'timeline'
 
@@ -13,7 +13,7 @@ class TimelineView(LoginRequiredMixin, generic.ListView):
         return Tweet.objects.order_by('-created_time')
 
 
-class TweetCreate(generic.CreateView):
+class TweetCreate(LoginRequiredMixin, generic.CreateView):
     template_name = 'tweets/tweet_new.html'
     success_url = reverse_lazy('tweets:timeline')
     model = Tweet
